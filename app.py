@@ -1,10 +1,5 @@
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeClassifier, export_text
-from sklearn.metrics import classification_report, accuracy_score, confusion_matrix
 import pickle
 import gradio as gr
 
