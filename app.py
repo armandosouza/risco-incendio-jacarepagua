@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import pickle
 import gradio as gr
+import os
 
 try:
     with open('modelo_arvore_fma.pkl', 'rb') as f:
@@ -91,4 +92,11 @@ with gr.Blocks(title="Painel de Prevenção a Incêndios - Jacarepaguá", theme=
     gr.Markdown("---")
     gr.Markdown("📍 *PROJETO INTEGRADOR 3: CLASSIFICAÇÃO DO RISCO DE INCÊNDIOS FLORESTAIS EM ÁREAS MUNICIPAIS POR MEIO DE APRENDIZAGEM DE MÁQUINA*")
 
-demo.launch()
+port = int(os.environ.get("PORT", 7860))
+
+# 2. Inicializa o Gradio liberando o IP 0.0.0.0 e travando a porta do Render
+demo.launch(
+    server_name="0.0.0.0",
+    server_port=port,
+    prevent_thread_lock=False
+)
